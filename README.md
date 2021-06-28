@@ -1,6 +1,6 @@
 # InventoryApp
 
-# Project hosted on AWS S3 using ststic hosting.
+# Project hosted on AWS S3 using static hosting.
 
 http://inventory-app-ui.s3-website-us-east-1.amazonaws.com/applications
 
