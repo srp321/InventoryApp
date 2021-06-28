@@ -1,5 +1,9 @@
 # InventoryApp
 
+# Project hosted on AWS S3 using ststic hosting.
+
+http://inventory-app-ui.s3-website-us-east-1.amazonaws.com/applications
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
 ## Development server
