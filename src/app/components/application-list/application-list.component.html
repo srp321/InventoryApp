@@ -1,0 +1,89 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        [(ngModel)]="name"
+        class="form-control"
+        placeholder="Search by name"
+        type="text"
+      />
+      <div class="input-group-append">
+        <button
+          (click)="searchByName()"
+          class="btn btn-outline-secondary"
+          type="button"
+        >
+          Quick Search
+        </button>
+      </div>
+      <br/>
+      <div class="input-group-append">
+        <button
+          (click)="searchByNameWithEnv()"
+          class="btn btn-outline-secondary"
+          type="button"
+        >
+          Full Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h4>Applications List</h4>
+    <ul class="list-group">
+      <li
+        (click)="setCurrentApplication(application, i)"
+        *ngFor="let application of applications; let i = index"
+        [class.active]="i == currentIndex"
+        class="list-group-item">
+        {{ application.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="currentApplication.id">
+      <h4>Application</h4>
+      <div>
+        <label><strong>Name:</strong></label>{{ currentApplication.name }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>{{ currentApplication.description }}
+      </div>
+      <div>
+        <label><strong>Contact:</strong></label>{{ currentApplication.contact }}
+      </div>
+      <div>
+        <label><strong>Admins:</strong></label>{{ currentApplication.admins }}
+      </div>
+      <div *ngIf=isWithEnv>
+        <label><strong>Environments:</strong></label>
+        <table class="table table-striped table-bordered">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>isProd</th>
+            <th>URL</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let environment of currentApplication.environments">
+            <td>{{environment}}</td>
+            <td>{{environment}}</td>
+            <td>{{environment}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <a class="badge badge-warning" routerLink="/applications/{{currentApplication.id}}">
+        Edit
+      </a>
+    </div>
+
+    <div *ngIf="!currentApplication.id">
+      <br/>
+      <p>Please click on an Application</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div>
+  <div *ngIf="currentApplication.id" class="edit-form">
+    <h4>Application</h4>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          [(ngModel)]="currentApplication.name"
+          class="form-control"
+          id="name"
+          name="name"
+          type="text"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          [(ngModel)]="currentApplication.description"
+          class="form-control"
+          id="description"
+          name="description"
+          type="text"
+        />
+      </div>
+      <div class="form-group">
+        <label for="contact">Contact</label>
+        <input
+          [(ngModel)]="currentApplication.contact"
+          class="form-control"
+          id="contact"
+          name="contact"
+          type="email"
+        />
+      </div>
+    </form>
+
+    <button (click)="updateApplication()" class="badge badge-success" type="submit">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentApplication">
+    <br/>
+    <p>This application is not accessible</p>
+  </div>
+</div>

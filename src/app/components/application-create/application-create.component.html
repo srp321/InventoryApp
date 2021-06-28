@@ -1,0 +1,57 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          [(ngModel)]="application.name"
+          class="form-control"
+          id="name"
+          name="name"
+          required
+          type="text"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          [(ngModel)]="application.description"
+          class="form-control"
+          id="description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Contact</label>
+        <input
+          [(ngModel)]="application.contact"
+          class="form-control"
+          id="contact"
+          name="contact"
+          type="email"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="admins">Admins</label>
+        <input
+          [(ngModel)]="application.admins"
+          class="form-control"
+          id="admins"
+          name="admins"
+          required
+        />
+      </div>
+
+      <button (click)="createApplication()" class="btn btn-success">Create</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>You successfully created an Application!</h4>
+      <button (click)="newApplication()" class="btn btn-success">New..</button>
+    </div>
+  </div>
+</div>
